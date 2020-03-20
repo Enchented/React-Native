@@ -1,41 +1,21 @@
-import React,{Component} from 'react';
-import { StyleSheet,Text, View,Button } from 'react-native';
+import * as React from 'react';
+import { Text, View ,StyleSheet,TouchableOpacity} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import ScrollableTabView , { ScrollableTabBar, DefaultTabBar } from "react-native-scrollable-tab-view";
 
-export default class FlatListBasics extends Component {
-  _onPressButton() {
-    Alert.alert('You tapped the button!')
-  }
 
-  render() {
-    return (
-    <View style={styles.container}>
-      <View style={styles.container}>
-        <Text >1 Lorem ipsum dolar sit amet</Text>
-        <Button
-        onPress={this._onPressButton}
-        itle="Press Me">
-        </Button>
-      </View>
-      <View style={styles.container}>
-         <Text >2 Lorem ipsum dolar </Text>
-      </View>
-      <View style={styles.container}>
-         <Text >3 Lorem ipsum dolar </Text>
-      </View>
-      <View style={styles.container}>
-         <Text >4 Lorem ipsum dolar </Text>
-      </View>
-      <View style={styles.container}>
-         <Text >5 Lorem ipsum dolar </Text>
-      </View>
-    </View>
-    );
-  }
+export default function App() {
+  return (
+
+<ScrollableTabView
+    renderTabBar={()=> <DefaultTabBar />}
+    tabBarBackgroundColor='#fff'
+    tabBarActiveTextColor='#5ebfff'
+    tabBarInactiveTextColor='#333'
+>
+    <Text  tabLabel='TODO'>TODO</Text >
+    <Text  tabLabel='DONE'> DONE</Text >
+
+</ScrollableTabView>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  }
-})
